@@ -211,9 +211,15 @@ estmean_pvalue = function(n_obs = 30, mu, sigma = 5) {
   
 }
 
-# prop.test(x, n, p = NULL,
-         # alternative = c("two.sided", "less", "greater"),
-         # conf.level = 0.95, correct = TRUE)
+estmean_pvalue = function(n_obs = 30, mu, sigma = 5) {
+  
+  x = rnorm(n = n_obs, mean = mu, sd = sigma)
+  tibble(
+    mu_hat = mean(x),
+    p_value = t.test(x, mu = 0)$p.value
+  )
+  
+}
 ```
 
 ## Apply Function to Datasets for Mean = 0
@@ -243,7 +249,7 @@ The code below saves the $\hat{\mu}$ and the p-value arising from a test of H:$\
 df_mu_all = 
   expand_grid(
     n = 30,
-    mu = c(1, 2, 3, 4, 5, 6), # NEED TO INCLUDE 0?
+    mu = c(1, 2, 3, 4, 5, 6),
     sigma = 5,
     dataset = 1:5000) %>% 
   mutate(
