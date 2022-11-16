@@ -252,7 +252,7 @@ df_mu_all
 
 ## Plots
 
-### Proportion of times the null was rejected vs. true value of the mean
+### Proportion of Times the Null was Rejected vs. True Value of the Mean
 
 The code below creates a plot showing the proportion of times the null was rejected (the power of the test) on the y axis and the true value of $\mu$ on the x axis:
 
@@ -274,7 +274,7 @@ df_mu_all %>%
 
 As the true sample mean increases (i.e., deviates further from 0), the power (proportion of times the null was rejected) increases. When the true sample mean is 1, the power of the test H: $\mu = 0$ using $\alpha = 0.05$ is very low. However, when the true sample mean increases to 5, the power of the test H: $\mu = 0$ using $\alpha = 0.05$ is 1. Therefore, large effect sizes increase statistical power.
 
-### Average estimate of the mean vs. true value of the mean
+### Average Estimate of the Mean vs. True Value of the Mean
 
 The code below creates a plot showing the average estimate of $\hat{\mu}$ vs. the true value of $\mu$:
 
@@ -284,6 +284,7 @@ df_mu_all %>%
   mutate(avg_mu_hat = mean(mu_hat)) %>%
   ggplot(aes(x = mu, y = avg_mu_hat)) +
   geom_point() + 
+  geom_line() + 
   labs(
     title = "Plot 1: Average Estimated Sample Mean vs. True Sample Mean",
     x = "True Sample Mean",
@@ -299,6 +300,7 @@ df_mu_all %>%
   mutate(avg_mu_hat = mean(mu_hat)) %>%
   ggplot(aes(x = mu, y = avg_mu_hat)) +
   geom_point() + 
+  geom_line() + 
   labs(
     title = "Plot 2: Average Estimated Sample Mean vs. True Sample Mean",
     x = "True Sample Mean",
