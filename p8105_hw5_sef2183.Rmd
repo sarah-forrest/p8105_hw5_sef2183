@@ -266,6 +266,7 @@ df_mu_all %>%
     prop_nullreject = cnt_nullreject / cnt)  %>% 
   ggplot(aes(x = mu, y = prop_nullreject)) + 
   geom_point() + 
+  geom_line() + 
   labs(
     title = "Null Hypothesis Rejection Proportion by Sample Mean",
     x = "True Sample Mean μ",
